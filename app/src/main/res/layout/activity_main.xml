@@ -26,10 +26,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="408dp">
+        app:layout_constraintTop_toBottomOf="@+id/title">
 
         <EditText
             android:id="@+id/userid"
@@ -60,8 +62,8 @@
 
         <Button
             android:id="@+id/btnlogin"
-            android:layout_width="262dp"
-            android:layout_height="wrap_content"
+            android:layout_width="256dp"
+            android:layout_height="49dp"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="10dp"
             android:background="@color/theme"
@@ -70,15 +72,17 @@
 
     <TextView
         android:id="@+id/title"
+        style="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
         android:layout_marginLeft="176dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="176dp"
         android:layout_marginRight="176dp"
-        android:fontFamily="@font/PWSchoolScript"
+        android:fontFamily="@font/school"
         android:text="Your Teachers"
+        android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
