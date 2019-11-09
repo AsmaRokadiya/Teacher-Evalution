@@ -7,36 +7,42 @@
     android:orientation="vertical"
     android:background="#EEE4E4"
     tools:context=".Main2Activity">
-<TextView
-    android:background="@color/theme"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Welcome!! You have Enrolled in  "
-    android:textSize="25dp"/>
+
     <TextView
-        android:background="@color/theme"
+        android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MAD 312"
-        android:textSize="25dp"/>
+        android:background="@color/theme"
+        android:text="Welcome!! You have Enrolled in  "
+        android:textSize="25dp" />
 
     <TextView
-        android:layout_marginTop="20dp"
-        android:textColor="@color/theme"
+        android:id="@+id/mad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme"
+        android:text="MAD 312"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/choose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Choose Teacher for the Assesment"
-        android:textSize="24dp"/>
+        android:textColor="@color/theme"
+        android:textSize="24dp" />
 
-<android.support.v7.widget.AppCompatSpinner
-    android:layout_marginTop="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="50dp">
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/chooseTeacher"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp">
 
-</android.support.v7.widget.AppCompatSpinner>
+    </android.support.v7.widget.AppCompatSpinner>
 
     <Button
-        android:id="@+id/btnevaluate"
+        android:id="@+id/btnEvaluate"
         android:layout_width="192dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="115dp"
