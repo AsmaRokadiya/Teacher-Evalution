@@ -50,16 +50,6 @@
             android:textAlignment="center"
             android:textColorHint="@color/theme" />
 
-        <TextView
-            android:id="@+id/forgot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="1dp"
-            android:text="Forgot Password?"
-            android:textAlignment="center"
-            android:textColor="@color/theme" />
-
         <Button
             android:id="@+id/btnlogin"
             android:layout_width="256dp"

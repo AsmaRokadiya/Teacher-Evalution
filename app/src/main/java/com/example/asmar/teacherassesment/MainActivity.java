@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(password.getText().toString().equals(pwd)&&user_id.getText().toString().equals(uname)){
                     Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
-                    Intent i=new Intent(getApplicationContext(),Main2Activity.class);
+                    Intent i=new Intent(getApplicationContext(),DashBoard.class);
                     startActivity(i);
                 }
                 else {

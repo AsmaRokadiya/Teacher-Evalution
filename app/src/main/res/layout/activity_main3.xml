@@ -8,19 +8,13 @@
     android:orientation="vertical"
     tools:context=".Main3Activity">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="250dp"
-        app:cardBackgroundColor="#EEE4E4">
 
         <TextView
             android:id="@+id/rating_Question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="67dp"
+            android:layout_marginTop="270dp"
             android:saveEnabled="true"
             android:text="Is your teacher helpfull?"
             android:textSize="25dp" />
@@ -29,12 +23,26 @@
             android:id="@+id/rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="75dp"
+            android:layout_marginLeft="83dp"
             android:layout_marginTop="40dp"
             android:numStars="5"
             android:saveEnabled="true" />
 
-    </android.support.v7.widget.CardView>
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ems="10"
+            android:ellipsize="start"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:hint="Enter your comment"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:singleLine="true" />
+
+
 
     <Button
         android:id="@+id/btnSubmit"
