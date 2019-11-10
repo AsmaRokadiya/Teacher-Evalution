@@ -15,6 +15,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="250dp"
         android:text="View Rating"
+        android:textColor="#FFFF"
         android:background="@drawable/gradient"/>
 
     <Button
@@ -22,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_marginTop="6dp"
         android:layout_height="wrap_content"
+        android:textColor="#FFFF"
         android:background="@drawable/gradient"
         android:text="Rate your Teacher" />
 
@@ -30,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_marginTop="6dp"
         android:layout_height="wrap_content"
+        android:textColor="#FFFF"
         android:background="@drawable/gradient"
         android:text="Search Students" />
 </LinearLayout>
