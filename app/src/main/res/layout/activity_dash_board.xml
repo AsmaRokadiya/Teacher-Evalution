@@ -24,7 +24,8 @@
         android:layout_marginTop="50dp"
         android:text="View Rating"
         android:textColor="#FFFF"
-        android:background="@drawable/gradient"/>
+        android:background="@color/theme"
+        />
 
     <Button
         android:id="@+id/btnAddRating"
@@ -32,7 +33,7 @@
         android:layout_marginTop="6dp"
         android:layout_height="wrap_content"
         android:textColor="#FFFF"
-        android:background="@drawable/gradient"
+        android:background="@color/theme"
         android:text="Rate your Teacher" />
 
     <Button
@@ -41,6 +42,6 @@
         android:layout_marginTop="6dp"
         android:layout_height="wrap_content"
         android:textColor="#FFFF"
-        android:background="@drawable/gradient"
+        android:background="@color/theme"
         android:text="Your profile" />
 </LinearLayout>

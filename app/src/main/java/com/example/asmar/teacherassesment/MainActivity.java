@@ -21,99 +21,96 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
+    String LOGGED_PERSON="";
     private Button btn;
     public String usernameString,passwordString;
     String dbusername,dbpassword;
     EditText user_id,password;
+    String strUrl = "http://192.168.2.18:8080/WebApplication1/teachereval/credentials/validate&";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         user_id = (EditText)findViewById(R.id.userid);
-        usernameString=user_id.getText().toString();
         password = (EditText) findViewById(R.id.password);
         btn= (Button) findViewById(R.id.btnlogin);
-       // passwordString= password.getText().toString();
-        new MyTask().execute();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(password.getText().toString().equals(dbpassword)&&user_id.getText().toString().equals(dbusername)){
-                    Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
-                    Intent i=new Intent(getApplicationContext(),DashBoard.class);
-                    startActivity(i);
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),"Login Failed. Please try again",Toast.LENGTH_LONG).show();
-                }
+
+                usernameString=user_id.getText().toString();
+                passwordString= password.getText().toString();
+
+                new MyTask().execute();
+
+
             }
         });
 
     }
+    public void setID(String id){
+        this.LOGGED_PERSON=id;
+    }
 
 
-    private class MyTask extends AsyncTask<Void, Void, Void> {
-       // String o1,o2,o3,o4;
+    private class MyTask extends AsyncTask<String, String, String> {
+
         @Override
-        protected Void doInBackground(Void... params){
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params){
 
             URL url = null;
 
             try {
+                url = new URL(strUrl+usernameString);
 
-                url = new URL("http://192.168.2.15:8080/WebApplication1/teachereval/credentials/validate&"+usernameString);
-
-                HttpURLConnection client = null;
-
-                client = (HttpURLConnection) url.openConnection();
-
+                HttpURLConnection client = (HttpURLConnection) url.openConnection();
                 client.setRequestMethod("GET");
+                client.connect();
 
-                int responseCode = client.getResponseCode();
 
-                System.out.println("\n Sending 'GET' request to URL : " + url);
 
-                System.out.println("Response Code : " + responseCode);
+                BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
-                InputStreamReader myInput= new InputStreamReader(client.getInputStream());
+                String response = in.readLine();
+                System.out.println("Result is" + response);
 
-                BufferedReader in = new BufferedReader(myInput);
-                String inputLine;
-                StringBuffer response = new StringBuffer();
 
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
-                //print result
-                System.out.println(response.toString());
-
-                JSONObject obj =new JSONObject(response.toString());
+                JSONObject obj =new JSONObject(response);
                 dbusername=""+obj.getString("username");
                 dbpassword=""+obj.getString("password");
 
-
-
-            }
-            catch (MalformedURLException e) {
+            } catch (MalformedURLException e) {
                 e.printStackTrace();
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
             return null;
 
         }
 
         @Override
-        protected void onPostExecute(Void result){
-            super.onPostExecute(result);
+        protected void onPostExecute(String result){
+
+            if(passwordString.equals(dbpassword)&&usernameString.equals(dbusername)){
+                Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
+                setID(dbusername);
+                Intent i=new Intent(getApplicationContext(),DashBoard.class);
+                startActivity(i);
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"Login Failed. Please try again",Toast.LENGTH_LONG).show();
+            }            super.onPostExecute(result);
         }
     }
-
-
 }
