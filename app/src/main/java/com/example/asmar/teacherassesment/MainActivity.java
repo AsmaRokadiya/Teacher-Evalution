@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,8 +21,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
-    private String uname="student1";
-    private String pwd="abcd";
     private Button btn;
     public String usernameString,passwordString;
     String dbusername,dbpassword;
@@ -34,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
         user_id = (EditText)findViewById(R.id.userid);
         usernameString=user_id.getText().toString();
         password = (EditText) findViewById(R.id.password);
-        passwordString= password.getText().toString();
         btn= (Button) findViewById(R.id.btnlogin);
+       // passwordString= password.getText().toString();
+        new MyTask().execute();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new MyTask().execute();
-                if(passwordString.equals(dbpassword)&&usernameString.equals(dbusername)){
+                if(password.getText().toString().equals(dbpassword)&&user_id.getText().toString().equals(dbusername)){
                     Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
                     Intent i=new Intent(getApplicationContext(),DashBoard.class);
                     startActivity(i);
@@ -94,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject obj =new JSONObject(response.toString());
                 dbusername=""+obj.getString("username");
                 dbpassword=""+obj.getString("password");
+
+
+
             }
             catch (MalformedURLException e) {
                 e.printStackTrace();
