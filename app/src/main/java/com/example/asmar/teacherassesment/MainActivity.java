@@ -21,13 +21,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
-    String LOGGED_PERSON="";
     private Button btn;
     public String usernameString,passwordString;
     String dbusername,dbpassword;
     EditText user_id,password;
     String strUrl = "http://192.168.2.18:8080/WebApplication1/teachereval/credentials/validate&";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-    public void setID(String id){
-        this.LOGGED_PERSON=id;
     }
 
 
@@ -80,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
                 String response = in.readLine();
-                System.out.println("Result is" + response);
+            //    System.out.println("Result is" + response);
 
 
                 JSONObject obj =new JSONObject(response);
@@ -104,13 +99,14 @@ public class MainActivity extends AppCompatActivity {
 
             if(passwordString.equals(dbpassword)&&usernameString.equals(dbusername)){
                 Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
-                setID(dbusername);
+             //   mainPerson.setId(dbusername);
                 Intent i=new Intent(getApplicationContext(),DashBoard.class);
                 startActivity(i);
             }
             else {
                 Toast.makeText(getApplicationContext(),"Login Failed. Please try again",Toast.LENGTH_LONG).show();
-            }            super.onPostExecute(result);
+            }
+            super.onPostExecute(result);
         }
     }
 }

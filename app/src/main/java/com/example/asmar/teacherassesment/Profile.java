@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,10 +21,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Profile extends AppCompatActivity {
-    Persons persons;
+
     TextView id, fname, lname;
     TextView addr, pho, pos, ema;
     Button btn;
+    String o1,o2,o3,o4,o5,o6,o7;
+    String strUrl = "http://192.168.2.18:8080/WebApplication1/teachereval/student/singleStudent&100";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +41,13 @@ public class Profile extends AppCompatActivity {
         pho = (TextView) findViewById(R.id.profilePhone);
         pos = (TextView) findViewById(R.id.profilePostal);
         ema = (TextView) findViewById(R.id.profileEmail);
+        new MyTask().execute();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
               //  DetailsDatabaseAsync.execute();
                 Intent i = new Intent(getApplicationContext(), EditProfile.class);
-
                 startActivity(i);
             }
         });
@@ -52,8 +55,9 @@ public class Profile extends AppCompatActivity {
 
     }
 
-    private class DetailsDatabaseAsync extends AsyncTask<Void, Void, Void> {
-        Persons p;
+
+
+    private class MyTask extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {
@@ -61,51 +65,36 @@ public class Profile extends AppCompatActivity {
         }
 
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected String doInBackground(String... params){
+
             URL url = null;
 
-            String o1, o2, o3, o4, o5, o6, o7;
             try {
+                url = new URL(strUrl);
 
-                url = new URL("http://192.168.2.15:8080/WebApplication1/teachereval/student/singleStudent&" + p.getId());
-
-                HttpURLConnection client = null;
-
-                client = (HttpURLConnection) url.openConnection();
-
+                HttpURLConnection client = (HttpURLConnection) url.openConnection();
                 client.setRequestMethod("GET");
-
-                int responseCode = client.getResponseCode();
-
-                System.out.println("\n Sending 'GET' request to URL : " + url);
-
-                System.out.println("Response Code : " + responseCode);
-
-                InputStreamReader myInput = new InputStreamReader(client.getInputStream());
-
-                BufferedReader in = new BufferedReader(myInput);
-                String inputLine;
-                StringBuffer response = new StringBuffer();
-
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
-                //print result
-                System.out.println(response.toString());
+                client.connect();
 
 
-                JSONObject obj = new JSONObject(response.toString());
-                o1 = "" + obj.getInt("pid");
-                o2 = "" + obj.getInt("fname");
-                o3 = "" + obj.getString("lname");
-                o4 = "" + obj.getString("email");
-                o5 = "" + obj.getString("phone");
-                o6 = "" + obj.getString("address");
-                o7 = "" + obj.getString("postal");
 
-                new Persons(o1, o2, o3, o6, o7, o4, o5);
+                BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+
+                String response = in.readLine();
+                System.out.println("Result is" + response);
+
+
+                JSONObject obj = new JSONObject(response);
+                 o1 = "" + obj.getString("id");
+                 o2 = "" + obj.getString("fname");
+                 o3 = "" + obj.getString("lname");
+                 o4 = "" + obj.getString("email");
+                 o5 = "" + obj.getString("phone");
+                 o6 = "" + obj.getString("address");
+                 o7 = "" + obj.getString("postal");
+
+               // new Persons(o2, o3, o6, o7, o4, o5);
+
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -113,21 +102,31 @@ public class Profile extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
             return null;
 
         }
 
         @Override
+        protected void onPostExecute(String result){
+            //id.setText(persons.getId());
+            id.setText(o1);
+            fname.setText(o2);
+            lname.setText(o3);
+            addr.setText(o6);
+            pho.setText(o5);
+            pos.setText(o7);
+            ema.setText(o4);
+            super.onPostExecute(result);
+
+        }
+    }
+/*
+
+        @Override
         protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            id.setText(persons.getId());
-            fname.setText(persons.getFname());
-            lname.setText(persons.getLname());
-            addr.setText(persons.getAddress());
-            pho.setText(persons.getPhone());
-            pos.setText(persons.getPostal());
-            ema.setText(persons.getEmail());
+
         }
 
-    }
+    }*/
 }

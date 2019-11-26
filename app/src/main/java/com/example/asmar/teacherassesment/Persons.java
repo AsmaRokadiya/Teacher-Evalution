@@ -3,8 +3,7 @@ package com.example.asmar.teacherassesment;
 public class Persons {
     String id,fname,lname,address,postal,email,phone;
 
-    public Persons(String id, String fname, String lname, String address, String postal, String email, String phone) {
-        this.id = id;
+    public Persons(String fname, String lname, String address, String postal, String email, String phone) {
         this.fname = fname;
         this.lname = lname;
         this.address = address;
@@ -12,6 +11,11 @@ public class Persons {
         this.email = email;
         this.phone = phone;
     }
+
+    public Persons(String id) {
+        this.id = id;
+    }
+
 
     public String getId() {
         return id;
