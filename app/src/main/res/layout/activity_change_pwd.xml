@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEE4E4"
+    android:orientation="vertical"
+    tools:context=".Main3Activity">
+
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:ems="10"
+        android:ellipsize="start"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:hint="Enter your new password"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:singleLine="true" />
+
+
+
+    <Button
+        android:id="@+id/changePWDBUTTON"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/theme"
+        android:gravity="center"
+        android:text="Submit" />
+
+</LinearLayout>

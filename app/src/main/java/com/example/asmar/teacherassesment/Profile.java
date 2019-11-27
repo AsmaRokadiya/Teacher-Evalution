@@ -25,14 +25,18 @@ public class Profile extends AppCompatActivity {
     TextView id, fname, lname;
     TextView addr, pho, pos, ema;
     Button btn;
+    Button refresh;
+    Button changePassword;
     String o1,o2,o3,o4,o5,o6,o7;
-    String strUrl = "http://192.168.2.18:8080/WebApplication1/teachereval/student/singleStudent&100";
-
+    String strUrl = "http://192.168.2.15:8080/WebApplication1/teachereval/student/singleStudent&";
+String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+        username = getIntent().getExtras().getString("username");
+        changePassword=(Button)findViewById(R.id.profileChangepwd);
+        refresh=(Button) findViewById(R.id.profileRefresh);
         btn = (Button) findViewById(R.id.profilebtnEdit);
         id = (TextView) findViewById(R.id.profileUserID);
         fname = (TextView) findViewById(R.id.profileFname);
@@ -42,12 +46,33 @@ public class Profile extends AppCompatActivity {
         pos = (TextView) findViewById(R.id.profilePostal);
         ema = (TextView) findViewById(R.id.profileEmail);
         new MyTask().execute();
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new MyTask().execute();
+            }
+        });
 
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getApplicationContext(),ChangePwd.class);
+                i.putExtra("username",username);
+                startActivity(i);
+            }
+        });
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
               //  DetailsDatabaseAsync.execute();
                 Intent i = new Intent(getApplicationContext(), EditProfile.class);
+                i.putExtra("id",o1);
+                i.putExtra("fname",o2);
+                i.putExtra("lname",o3);
+                i.putExtra("email",o4);
+                i.putExtra("address",o6);
+                i.putExtra("postal",o7);
+                i.putExtra("phone",o5);
                 startActivity(i);
             }
         });
@@ -70,7 +95,7 @@ public class Profile extends AppCompatActivity {
             URL url = null;
 
             try {
-                url = new URL(strUrl);
+               url = new URL(strUrl+username);
 
                 HttpURLConnection client = (HttpURLConnection) url.openConnection();
                 client.setRequestMethod("GET");
@@ -121,12 +146,7 @@ public class Profile extends AppCompatActivity {
 
         }
     }
-/*
 
-        @Override
-        protected void onPostExecute(Void aVoid) {
 
-        }
 
-    }*/
 }

@@ -10,10 +10,12 @@ public class DashBoard extends AppCompatActivity {
 Button yourProfile;
 Button viewRating;
 Button addRating;
+String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
+        username = getIntent().getExtras().getString("username");
 
         yourProfile=(Button)findViewById(R.id.btnYourProfile);
         viewRating=(Button)findViewById(R.id.btnViewRating);
@@ -22,6 +24,8 @@ Button addRating;
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getApplicationContext(),Profile.class);
+                i.putExtra("username",username);
+
                 startActivity(i);
             }
         });
