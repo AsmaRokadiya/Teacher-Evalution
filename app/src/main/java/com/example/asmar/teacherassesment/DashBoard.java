@@ -19,7 +19,7 @@ String username;
 
         yourProfile=(Button)findViewById(R.id.btnYourProfile);
         viewRating=(Button)findViewById(R.id.btnViewRating);
-        addRating=(Button)findViewById(R.id.btnViewRating);
+        addRating=(Button)findViewById(R.id.btnAddRating);
         yourProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,8 +33,7 @@ String username;
         viewRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getApplicationContext(),Profile.class);
-                startActivity(i);
+
             }
         });
 

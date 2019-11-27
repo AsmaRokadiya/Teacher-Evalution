@@ -12,17 +12,12 @@
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:background="@color/theme"
-        android:text="Welcome!! You have Enrolled in  "
+        android:text=" Welcome "
         android:textSize="25dp" />
 
-    <TextView
-        android:id="@+id/mad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/theme"
-        android:text="MAD 312"
-        android:textSize="25dp" />
+
 
     <TextView
         android:id="@+id/choose"

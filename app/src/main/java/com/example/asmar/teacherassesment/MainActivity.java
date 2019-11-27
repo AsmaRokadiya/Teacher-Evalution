@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
                 String response = in.readLine();
-            //    System.out.println("Result is" + response);
+               System.out.println("Result is" + response);
 
 
                 JSONObject obj =new JSONObject(response);
