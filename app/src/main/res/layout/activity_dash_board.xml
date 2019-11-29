@@ -44,4 +44,12 @@
         android:textColor="#FFFF"
         android:background="@color/theme"
         android:text="Your profile" />
+    <Button
+        android:id="@+id/btnlogout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="6dp"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFF"
+        android:background="@color/theme"
+        android:text="Log Out" />
 </LinearLayout>
