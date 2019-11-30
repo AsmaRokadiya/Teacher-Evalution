@@ -140,7 +140,7 @@ public class DisplayRating extends AppCompatActivity {
             URL url = null;
 
             try {
-                url = new URL(strUrl1+subid[0]+"&"+subid[2]);
+                url = new URL(strUrl2+subid[0]+"&"+subid[2]);
 
                 HttpURLConnection client = (HttpURLConnection) url.openConnection();
                 client.setRequestMethod("GET");
