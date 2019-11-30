@@ -22,7 +22,7 @@ import java.nio.file.attribute.BasicFileAttributeView;
 
 public class ChangePwd extends AppCompatActivity {
 String username;
-    String strUrl = "http://192.168.2.15:8080/WebApplication1/teachereval/credentials/updatePassword&";
+    String strUrl = "http://172.26.221.79:8080/WebApplication1/teachereval/credentials/updatePassword&";
 EditText newPassword;
 String newPwd;
 JSONObject object;

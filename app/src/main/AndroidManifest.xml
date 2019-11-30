@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ChangePwd"></activity>
+        <activity android:name=".DisplayRating"></activity>
+        <activity android:name=".ChangePwd" />
         <activity android:name=".EditProfile" />
         <activity android:name=".Profile" />
         <activity android:name=".DashBoard" />

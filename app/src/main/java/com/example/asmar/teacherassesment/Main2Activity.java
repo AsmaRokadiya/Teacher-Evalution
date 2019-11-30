@@ -28,13 +28,13 @@ public class Main2Activity extends AppCompatActivity {
     TextView sub1,sub2,sub3;
     TextView name1,name2,name3;
     String resultString;
-    String[] subid = new String[3];
-    String[] sub = new String[3];
-    String[] teacherid = new String[3];
-    String[] teacherfname = new String[3];
-    String[] teacherlname = new String[3];
+    public  String[] subid = new String[3];
+   public String[] sub = new String[3];
+   public String[] teacherid = new String[3];
+   public String[] teacherfname = new String[3];
+  public   String[] teacherlname = new String[3];
 
-    String strUrl = "http://192.168.2.15:8080/WebApplication1/teachereval/studentsubject/getSubject&";
+    String strUrl = "http://172.26.221.79:8080/WebApplication1/teachereval/studentsubject/getSubject&";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

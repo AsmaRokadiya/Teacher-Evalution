@@ -52,7 +52,9 @@ public class DashBoard extends AppCompatActivity {
         viewRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getApplicationContext(), DisplayRating.class);
+                i.putExtra("username", username);
+                startActivity(i);
             }
         });
 
@@ -75,6 +77,6 @@ public class DashBoard extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        //Don nothing
+        //Do nothing
     }
 }

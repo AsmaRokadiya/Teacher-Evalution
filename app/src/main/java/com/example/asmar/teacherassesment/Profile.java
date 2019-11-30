@@ -28,7 +28,7 @@ public class Profile extends AppCompatActivity {
     Button refresh;
     Button changePassword;
     String o1,o2,o3,o4,o5,o6,o7;
-    String strUrl = "http://192.168.2.15:8080/WebApplication1/teachereval/student/singleStudent&";
+    String strUrl = "http://172.26.221.79:8080/WebApplication1/teachereval/student/singleStudent&";
 String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

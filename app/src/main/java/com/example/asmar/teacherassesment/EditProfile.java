@@ -26,7 +26,7 @@ public class EditProfile extends AppCompatActivity {
     TextView id,fname,lname;
     EditText addr,pho,pos,ema;
     String idd,fnam,lnam,address,postal,email,phone;
-    String stringUrl="http://192.168.2.15:8080/WebApplication1/teachereval/persons/updateStudent&";
+    String stringUrl="http://172.26.221.79:8080/WebApplication1/teachereval/persons/updateStudent&";
     String resultInteger;
 
     String valueemail,valuephone,valueaddress,valuepostal;

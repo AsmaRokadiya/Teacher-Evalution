@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public String usernameString,passwordString;
     String dbusername,dbpassword;
     EditText user_id,password;
-    String strUrl = "http://192.168.2.15:8080/WebApplication1/teachereval/credentials/validate&";
+    String strUrl = "http://172.26.221.79:8080/WebApplication1/teachereval/credentials/validate&";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

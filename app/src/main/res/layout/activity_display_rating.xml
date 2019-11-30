@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#EEE4E4"
+    tools:context=".Main2Activity">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/theme"
+        android:text=" Cegep de la Gaspesie "
+        android:textSize="25dp" />
+    <TextView
+        android:id="@+id/choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Teacher's ratings for your subjects"
+        android:textColor="@color/theme"
+        android:textSize="24dp" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:padding="3dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+
+
+            <TextView
+                android:id="@+id/viewSubjectName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subject Name" />
+
+
+            <TextView
+                android:id="@+id/viewTeacherName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teacher Name goes here" />
+            <TextView
+                android:id="@+id/viewRating1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rating" />
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:padding="3dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+
+
+            <TextView
+                android:id="@+id/viewSubjectName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subject Name" />
+
+
+            <TextView
+                android:id="@+id/viewTeacherName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teacher Name goes here" />
+            <TextView
+                android:id="@+id/viewRating2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rating" />
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:padding="3dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+
+
+            <TextView
+                android:id="@+id/viewSubjectName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subject Name" />
+
+
+            <TextView
+                android:id="@+id/viewTeacherName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teacher Name goes here" />
+            <TextView
+                android:id="@+id/viewRating3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rating" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

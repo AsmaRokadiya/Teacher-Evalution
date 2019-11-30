@@ -31,7 +31,7 @@ String teacher_id;
 String subject_id;
 String resultString;
     String ratingx;
-    String strUrl = "http://192.168.2.15:8080/WebApplication1/teachereval/ratingTable/insertRating&";
+    String strUrl = "http://172.26.221.79:8080/WebApplication1/teachereval/ratingTable/insertRating&";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +95,7 @@ String resultString;
         @Override
         protected void onPostExecute(String result){
             if (resultString.equals("ERROR")){
-                Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"You have already evaluated your teacher",Toast.LENGTH_LONG).show();
             }
             else {
                 Toast.makeText(getApplicationContext(), "You have successfully evaluated your teacher", Toast.LENGTH_LONG).show();
